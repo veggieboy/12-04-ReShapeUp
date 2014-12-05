@@ -1,40 +1,58 @@
-public class Line
+public class Point
 {
-  private Point start;
-  private Point end;
+  private int x;
+  private int y;
   
-  public Line() 
+  public Point()
   {
-    start.setX(0);
-    start.setY(0);
-    end.setX(0);
-    end.setY(0);
+    x=0;
+    y=0;
   }
   
-  public Line(Point startPoint, Point endPoint) 
+  public Point (int x, int y)
   {
-    start=startPoint;
-    end=endPoint;
+    this.x=x;
+    this.y=y;
   }
   
-  public double length() 
+  public int getX()
   {
-    return start.distance(end);
+    return x;
   }
   
-  public double slope() 
+  public int getY()
   {
-    return (start.getY()-end.getY())/(start.getX()-end.getX());
+    return y;
+  } 
+  
+  public void setX(int val)
+  {
+    x=val;
   }
   
-  public String toString() 
+  public void setY(int val)
   {
-    return ("["+start.toString()+", "+end.toString()+"]");
+    y=val;
   }
   
-  public void translate (int dx, int dy) 
+  public void translate (int dx, int dy)
   {
-    start.translate(dx, dy);
-    end.translate(dx, dy);
+    x+=dx;
+    y+=dy;
+  }
+  
+  public double distanceFromOrigin()
+  {
+    return Math.sqrt(x*x+y*y);
+  }
+  
+  public double distance(Point p2)
+  {
+    return Math.sqrt((x-p2.getX())*(x-p2.getX())+(y-p2.getY())*(y-p2.getY()));
+  }
+  
+  public String toString()
+  {
+    return "("+x+", "+y+")";
   }
 }
