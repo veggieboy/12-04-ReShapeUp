@@ -1,8 +1,9 @@
 public class Rectangle 
 { 
-  Point origin; 
-  int width; 
-  int height; 
+  private Point origin; 
+  private int width; 
+  private int height; 
+  
   public Rectangle() { 
     origin=new Point();
     width=0; 
@@ -17,8 +18,8 @@ public class Rectangle
   public Rectangle(Point bottomLeft, int a, int b) 
   { 
     origin=bottomLeft; 
-    width=a-bottomLeft.x; 
-    height=b-bottomLeft.y; 
+    width=a;
+    height=b;
   } 
   public Point getBottomLeft()
   { 
@@ -72,7 +73,7 @@ public class Rectangle
   } 
   public void scale (int dx, int dy) 
   { 
-    width+=dx; 
-    height+=dy; 
+    width=width+dx; 
+    height=height+dy; 
   } 
 } 
